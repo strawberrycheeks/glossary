@@ -34,22 +34,27 @@
         color: NODE_COLOUR,
       }));
 
+      const edges = [];
+      terms.forEach((term) => {
+        const relations = term.relations.map((relation) => ({
+          from: term.id,
+          to: relation.id,
+          label: relation.relation,
+        }));
+        edges.push(...relations);
+      });
+
       const graph = new graphology.Graph();
       nodes.forEach((node, index) => {
         graph.addNode(node.id, node);
       });
-
-      graph.addEdge("library", "tensorflow", {
-        size: 5,
-        label: "зависит от",
-        type: "arrow",
-        color: EDGE_COLOUR,
-      });
-      graph.addEdge("machine-learning", "tensorflow", {
-        size: 5,
-        label: "зависит от",
-        type: "arrow",
-        color: EDGE_COLOUR,
+      edges.forEach((edge) => {
+        graph.addEdge(edge.from, edge.to, {
+          label: edge.label,
+          size: 5,
+          type: "arrow",
+          color: EDGE_COLOUR,
+        });
       });
 
       const sigmaInstance = new Sigma(

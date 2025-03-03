@@ -4,7 +4,16 @@
       "id": "tensorflow",
       "name": "TensorFlow",
       "description": "Платформа с открытым исходным кодом, разработанная компанией Google для решения задач машинного обучения.",
-      "relations": [],
+      "relations": [
+        {
+          "id": "library",
+          "relation": "является"
+        },
+        {
+          "id": "tensor",
+          "relation": "использует"
+        }
+      ],
       "references": [
         "https://www.tensorflow.org",
         "https://github.com/tensorflow/tensorflow"
@@ -15,6 +24,30 @@
       "name": "TensorFlow.js",
       "description": "Библиотека с открытым исходным кодом, которая предназначена для использования машинного обучения на языке программирования JavaScript в окружении браузера и окружении Node.js.",
       "relations": [
+        {
+          "id": "deep-learning",
+          "relation": "применяется для"
+        },
+        {
+          "id": "library",
+          "relation": "является"
+        },
+        {
+          "id": "machine-learning",
+          "relation": "применяется для"
+        },
+        {
+          "id": "machine-learning-model",
+          "relation": "реализует"
+        },
+        {
+          "id": "neural-network",
+          "relation": "реализует"
+        },
+        {
+          "id": "tensor",
+          "relation": "использует"
+        },
         {
           "id": "tensorflow",
           "relation": "является версией"
@@ -30,10 +63,6 @@
         {
           "id": "webgl",
           "relation": "использует"
-        },
-        {
-          "id": "library",
-          "relation": "является"
         }
       ],
       "references": [
@@ -45,7 +74,6 @@
       "id": "tensorflow-js-core",
       "name": "TensorFlow.js Core API",
       "description": "Низкоуровневый API библиотеки TensorFlow.js, предназначенный для работы с автоматическим дифференцированием и низкоуровневыми операциями линейной алгебры с применением аппаратного ускорения.",
-      "relations": [],
       "references": [
         "https://github.com/tensorflow/tfjs"
       ]
@@ -54,7 +82,6 @@
       "id": "tensorflow-js-layers",
       "name": "TensorFlow.js Layers API",
       "description": "Высокоуровневый API библиотеки TensorFlow.js, разработанный на основе библиотеки Keras и предназначенный для построения, обучения и исполнения искусственных нейронных сетей в браузере.",
-      "relations": [],
       "references": [
         "https://github.com/tensorflow/tfjs"
       ]
@@ -63,7 +90,6 @@
       "id": "webgl",
       "name": "WebGL",
       "description": "Кроссплатформенная библиотека для языка JavaScript, предназначенная для визуализации двухмерной и трехмерной графики в браузере с использованием аппаратного ускорения.",
-      "relations": [],
       "references": [
         "https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API"
       ]
@@ -72,7 +98,6 @@
       "id": "library",
       "name": "Библиотека",
       "description": "Набор готовых функций, классов и объектов, предназначенных для повторного использования при разработке программного обеспечения. Библиотеки обычно разрабатываются для определенного языка программирования и содержат компоненты, объединенные общим назначением или сферой применения.",
-      "relations": [],
       "references": [
         "https://en.wikipedia.org/w/index.php?title=Library_(computing)&oldid=1277453606",
         "https://blog.skillfactory.ru/glossary/biblioteka"
@@ -82,7 +107,16 @@
       "id": "deep-learning",
       "name": "Глубокое обучение",
       "description": "Совокупность методов машинного обучения, использующих искусственные нейронные сети с большим количеством скрытых слоев для автоматического извлечения сложных представлений данных и поиска скрытых закономерностей в больших объемах информации.",
-      "relations": [],
+      "relations": [
+        {
+          "id": "machine-learning",
+          "relation": "является подразделом"
+        },
+        {
+          "id": "neural-network",
+          "relation": "использует"
+        }
+      ],
       "references": [
         "https://www.k0d.cc/storage/books/AI,%20Neural%20Networks/%D0%93%D0%BB%D1%83%D0%B1%D0%BE%D0%BA%D0%BE%D0%B5%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20(%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%BA%D0%BE).pdf"
       ]
@@ -91,7 +125,6 @@
       "id": "machine-learning",
       "name": "Машинное обучение",
       "description": "Раздел искусственного интеллекта, направленный на создание методов и алгоритмов, позволяющих компьютерным системам автоматически обучаться на основе данных и выполнять задачи автономно, без явных инструкций.",
-      "relations": [],
       "references": [
         "https://www.ibm.com/think/topics/machine-learning"
       ]
@@ -100,7 +133,6 @@
       "id": "machine-learning-model",
       "name": "Модель машинного обучения",
       "description": "Представление алгоритма машинного обучения, позволяющее выявлять какие-либо закономерности и генерировать прогнозы на основе входных данных.",
-      "relations": [],
       "references": [
         "https://yandex.cloud/ru/docs/glossary/ml-models",
         "https://habr.com/ru/articles/862704"
@@ -110,7 +142,6 @@
       "id": "neuron",
       "name": "Искусственный нейрон",
       "description": "Составляющий элемент искусственной нейронной сети, который является упрощенной моделью естественного нейрона. С математической точки зрения искусственный нейрон — это некоторая нелинейная функция, которая имеет несколько входных сигналов и один выходной сигнал.",
-      "relations": [],
       "references": [
         "https://ru.wikipedia.org/?curid=34731&oldid=143067490"
       ]
@@ -119,7 +150,16 @@
       "id": "neural-network",
       "name": "Искусственная нейронная сеть",
       "description": "Математическая модель, а также ее программная реализация, которая является упрощенной моделью биологической нейронной сети и представляет собой совокупность искусственных нейронов, взаимодействующих между собой.",
-      "relations": [],
+      "relations": [
+        {
+          "id": "layer",
+          "relation": "состоит из"
+        },
+        {
+          "id": "machine-learning-model",
+          "relation": "является"
+        }
+      ],
       "references": [
         "https://neerc.ifmo.ru/wiki/index.php?title=%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5_%D1%81%D0%B5%D1%82%D0%B8,_%D0%BF%D0%B5%D1%80%D1%86%D0%B5%D0%BF%D1%82%D1%80%D0%BE%D0%BD&oldid=85439"
       ]
@@ -128,7 +168,12 @@
       "id": "layer",
       "name": "Слой",
       "description": "Структурный элемент нейронной сети, состоящий из совокупности нейронов, выполняющий обработку входных данных по заданному алгоритму.",
-      "relations": [],
+      "relations": [
+        {
+          "id": "neuron",
+          "relation": "состоит из"
+        }
+      ],
       "references": [
         "https://neerc.ifmo.ru/wiki/index.php?title=%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5_%D1%81%D0%B5%D1%82%D0%B8,_%D0%BF%D0%B5%D1%80%D1%86%D0%B5%D0%BF%D1%82%D1%80%D0%BE%D0%BD&oldid=85439"
       ]
@@ -137,7 +182,6 @@
       "id": "tensor",
       "name": "Тензор",
       "description": "Многомерный массив данных, являющийся основной единицей хранения и обработки информации в библиотеке TensorFlow.",
-      "relations": [],
       "references": [
         "https://habr.com/ru/articles/484214"
       ]
