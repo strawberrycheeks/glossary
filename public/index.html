@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Семантический граф глоссария</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sigma.js/2.4.0/sigma.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/graphology/0.25.4/graphology.umd.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div id="container" class="container"></div>
+    <script type="module">
+      const EDGE_COLOUR = "#8b918e";
+      const NODE_COLOUR = "#333533";
+
+      let terms = [];
+      try {
+        const response = await axios.get(
+          "https://raw.githubusercontent.com/strawberrycheeks/web-glossary/refs/heads/main/dictionary.json"
+        );
+        terms = response.data.terms;
+      } catch (error) {
+        console.error("При загрузке терминов произошла ошибка:", error);
+      }
+
+      const nodes = terms.map((term, index) => ({
+        id: term.id,
+        label: term.name,
+        x: Math.cos((index / terms.length) * 2 * Math.PI),
+        y: Math.sin((index / terms.length) * 2 * Math.PI),
+        size: 10,
+        color: NODE_COLOUR,
+      }));
+
+      const graph = new graphology.Graph();
+      nodes.forEach((node, index) => {
+        graph.addNode(node.id, node);
+      });
+
+      graph.addEdge("library", "tensorflow", {
+        size: 5,
+        label: "зависит от",
+        type: "arrow",
+        color: EDGE_COLOUR,
+      });
+      graph.addEdge("machine-learning", "tensorflow", {
+        size: 5,
+        label: "зависит от",
+        type: "arrow",
+        color: EDGE_COLOUR,
+      });
+
+      const sigmaInstance = new Sigma(
+        graph,
+        document.getElementById("container"),
+        {
+          renderEdgeLabels: true,
+        }
+      );
+    </script>
+  </body>
+</html>
