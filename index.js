@@ -19,9 +19,6 @@ const downloadTerms = async () => {
 };
 
 const expressApp = express();
-expressApp.use(
-  express.static(path.join(__dirname, "public"), { index: false })
-);
 
 expressApp.get("/", (_, response) => {
   response.send(
@@ -30,7 +27,7 @@ expressApp.get("/", (_, response) => {
 });
 
 expressApp.get("/mindmap", (_, response) => {
-  response.sendFile(path.join(__dirname, "public", "index.html"));
+  response.sendFile(path.join(__dirname, "index.html"));
 });
 
 expressApp.get("/terms", (_, response) => {
